@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="inherit_commission_field" model="ir.ui.view">
+            <field name="name">Sales commission</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="tax_totals_json" position="after">
+                    <field name="commission" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

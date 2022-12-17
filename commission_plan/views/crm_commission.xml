@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+        <record id="seq_commission" model="ir.sequence">
+            <field name="name">Commission Sequence</field>
+            <field name="code">crm.commission</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">COM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+    <record id="crm_commission" model="ir.actions.act_window">
+        <field name="name">Commission</field>
+        <field name="res_model">crm.commission</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="commission_action_tree" model="ir.ui.view">
+        <field name="name">commission tree</field>
+        <field name="model">crm.commission</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="commission"/>
+                <field name="from_date"/>
+                <field name="to_date"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="commission_action_form" model="ir.ui.view">
+        <field name="name">commission form</field>
+        <field name="model">crm.commission</field>
+        <field name="arch" type="xml">
+            <form string="commission_form">
+                <header>
+                    <button string="cancel" class="btn-primary" type="object" name="action_cancel"
+                            attrs="{'invisible' : [('status','=','cancel')]}"/>
+
+                    <field name="status" widget="statusbar" statusbar_visible="draft,running,cancel">
+
+                    </field>
+
+                </header>
+
+
+                <sheet>
+
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('status', '!=', 'cancel')]}"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+
+                        <group>
+
+                            <field name="commission" attrs="{'readonly': [('status', '=', 'running')]}"/>
+                        </group>
+                        <group>
+                            <field name="from_date" attrs="{'readonly': [('status', '=', 'running')]}"/>
+                            <field name="to_date" attrs="{'readonly': [('status', '=', 'running')]}"/>
+                        </group>
+                        <group>
+                            <field name="type" attrs="{'readonly': [('status', '=', 'running')]}"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+
+
+                    <notebook>
+
+                        <page name="product wise" string="product wise" attrs="{'invisible':[('type','=', 'rw')]}">
+                            <field name="products_ids">
+                                <tree editable="bottom">
+                                    <field name="cat_id"/>
+                                    <field name="product_id"/>
+                                    <field name="rate"/>
+                                    <field name="max_com"/>
+                                </tree>
+                            </field>
+                        </page>
+
+
+                        <page name="revenue wise" string="revenue wise" attrs="{'invisible':[('type','=','pw')]}">
+                            <group>
+                            <field name="revenue_type" string="Type" attrs="{'readonly': [('status', '=', 'running')]}"/>
+                            </group>
+                            <field name="revenues_ids">
+
+                                <tree editable="bottom">
+                                    <field name="from_amt"/>
+                                    <field name="to_amt"/>
+                                    <field name="rate"/>
+                                </tree>
+
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name = 'message_ids'/>
+                </div>
+
+
+
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem id="main_menu"
+              name="Commission Plan"
+              action="crm_commission"/>
+
+</odoo>
