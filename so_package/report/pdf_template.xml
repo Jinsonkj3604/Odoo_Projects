@@ -1,0 +1,81 @@
+<odoo>
+    <template id="report_bundle_package">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h1><center>Sale Package Bundle Report</center></h1>
+                    <div>
+                        <tr>
+                            <t t-if="from_date"><td>
+                                <strong>From Date:</strong>
+                                <span t-esc="from_date"/>
+                            </td></t><br/>
+                            <br/>
+                            <t t-if="to_date"><td>
+                                <strong>To Date:</strong>
+                                <span t-esc="to_date"/>
+                            </td></t><br/>
+                            <br/>
+                            <td>
+                                <strong>
+                                    <span t-esc="person_id"/>
+                                </strong>
+
+                            </td><br/><br/>
+                        </tr>
+                    </div>
+                    <style>table{
+                        font-family: arial, sans-serif; border-collapse: collapse; width : 100%;
+                        }
+                        td, th {
+                        border: 1px solid #dddddd; text-align: left; padding: 8px;
+                        }
+                    </style>
+                    <table>
+                        <tr>
+                            <th>slno</th>
+                            <th>bundle</th>
+                            <th>pack</th>
+                            <th>product</th>
+                            <th>Quantity</th>
+                            <th>width</th>
+                            <th>height</th>
+                            <th>weight</th>
+                        </tr>
+                        <t t-set="p" t-value="1"/>
+
+                        <t t-foreach="new" t-as="i">
+                            <tr>
+                                <td>
+                                    <span t-esc="p"/>
+                                    <t t-set="p" t-value="p+1"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['bundle']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['pack']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['product']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['quantity']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['width']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['height']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="i['weight']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="package_pdf_report" model="ir.ui.view">
+            <field name="name">pacakge_report_wizard</field>
+            <field name="model">pdf.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Test">
+                    <group class="oe_title">
+                        <field name="person_id"/>
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                    </group>
+                    <footer>
+                        <button name="action_pdf_print" string="PDF" type="object" class="btn-primary"/>
+                        <button name="action_excel_print" string="XLSX" type="object" class="btn-primary"/>
+                        <button name="action_close" string="Close" type="object" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="pdf_wizard_action" model="ir.actions.act_window">
+            <field name="name">Report Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pdf.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="package_pdf_report"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="report_menu_wizard"
+                  name="Package Report"
+                  action="pdf_wizard_action"
+                  parent="stock.menu_warehouse_report"/>
+    </data>
+</odoo>
+

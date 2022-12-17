@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="sale_package" model="ir.actions.act_window">
+        <field name="name">Package</field>
+        <field name="res_model">sale.package.model</field>
+        <field name="view_mode">tree,form</field>
+     </record>
+
+     <record id="package_action" model="ir.ui.view">
+          <field name="name">package_action</field>
+          <field name="model">sale.package.model</field>
+          <field name="arch" type="xml">
+              <form string="package_view">
+                  <sheet>
+                      <group>
+                          <field name="name"/>
+                          <field name="width"/>
+                          <field name="length"/>
+                          <field name="height"/>
+                          <field name="m_weight"/>
+                      </group>
+                      <notebook>
+
+                      </notebook>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <record id="package_action2" model="ir.ui.view">
+          <field name="name">package_action2</field>
+          <field name="model">sale.package.model</field>
+          <field name="arch" type="xml">
+              <tree string="package_list_view">
+                          <field name="name"/>
+                          <field name="width"/>
+                          <field name="length"/>
+                          <field name="height"/>
+                          <field name="m_weight"/>
+              </tree>
+          </field>
+      </record>
+
+    <menuitem id="main_menu"
+               name="Sale Package"
+               action="sale_package"
+               parent ="stock.menu_stock_config_settings"/>
+
+</odoo>

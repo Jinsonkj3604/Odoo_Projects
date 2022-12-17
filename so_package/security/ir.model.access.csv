@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_test_model1,sale_package_model,model_sale_package_model,base.group_user,1,1,1,1
+access_test_model2,sale_package_bundle,model_sale_package_bundle,base.group_user,1,1,1,1
+access_test_model3,sale_package_bundle_page,model_sale_package_bundle_page,base.group_user,1,1,1,1
+access_test_pdf,pdf_report_wizard,model_pdf_report_wizard,base.group_user,1,1,1,1

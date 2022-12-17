@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+
+    <data>
+        <record id="package_bundle_view" model="ir.ui.view">
+            <field name="name">package bundle button</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+<!--                <xpath expr="//div[@string='button_box']" position="after">-->
+
+                <div name="button_box" position="inside">
+                    <button string=" Packages Bundle" class="oe_stat_button" type="object" name="package_bundle" attrs="{'invisible' : [('state','not in','done')]}">
+                    </button>
+                </div>
+
+<!--                </xpath>-->
+
+
+            </field>
+        </record>
+    </data>
+
+
+</odoo>

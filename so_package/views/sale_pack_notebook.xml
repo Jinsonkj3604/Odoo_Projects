@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <!--    Notebook page in sale as Package info-->
+    <data>
+        <record id="inherit_sale_order_notebook" model="ir.ui.view">
+            <field name="name">notebook in sale order form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']" position="after">
+
+                    <page string="Package info">
+
+
+
+                        <field name="pack_ids" widget="one2many">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="width"/>
+                                <field name="height"/>
+                                <field name="m_weight"/>
+                                <field name="length"/>
+                            </tree>
+                        </field>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+
+
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_package_sequence" model="ir.sequence">
+            <field name="name">Package sequence</field>
+            <field name="code">sale.package.bundle</field>
+            <field name="prefix">SP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+    <record id="sale_package_bundle" model="ir.actions.act_window">
+        <field name="name">Package Bundle</field>
+        <field name="res_model">sale.package.bundle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="bundle_action1" model="ir.ui.view">
+        <field name="name">bundle_action1</field>
+        <field name="model">sale.package.bundle</field>
+        <field name="arch" type="xml">
+            <form string="bundle_view">
+                <sheet>
+                    <h2><field name="seq_no"/></h2>
+
+                    <group>
+
+                        <field name="partner_id"/>
+                        <field name="s_refer"/>
+                        <field name="date"/>
+                        <field name="ex_date"/>
+                        <field name="person_id"/>
+                    </group>
+                    <notebook>
+
+                    </notebook>
+
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="bundle_action2" model="ir.ui.view">
+        <field name="name">bundle_action2</field>
+        <field name="model">sale.package.bundle</field>
+        <field name="arch" type="xml">
+            <tree string="bundle_tree_view">
+
+                <field name="s_refer"/>
+                <field name="partner_id"/>
+                <field name="date"/>
+                <field name="ex_date"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <menuitem id="sub_menu"
+              name="Package Bundle"
+              action="sale_package_bundle"
+              parent="stock.menu_stock_inventory_control"/>
+
+
+</odoo>
+

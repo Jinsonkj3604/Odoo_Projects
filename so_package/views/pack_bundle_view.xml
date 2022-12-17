@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <!--    Notebook page in package bundle as Package details-->
+<!--    <data>-->
+        <record id="inherit_package_bundle_page" model="ir.ui.view">
+            <field name="name">notebook package detail</field>
+            <field name="inherit_id" ref="so_package.bundle_action1"/>
+            <field name="model">sale.package.bundle</field>
+            <field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="Package detail">
+
+                        <field name="page_ids" widget="one2many">
+                            <tree>
+                                <field name = "product_id"/>
+                                <field name = "quantity"/>
+                                <field name="name"/>
+                                <field name="width"/>
+                                <field name="height"/>
+                                <field name="weight"/>
+                                <field name="length"/>
+                            </tree>
+                        </field>
+
+                    </page>
+                </notebook>
+            </field>
+        </record>
+<!--    </data>-->
+
+
+</odoo>

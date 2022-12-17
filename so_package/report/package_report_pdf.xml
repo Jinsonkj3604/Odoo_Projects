@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_report_package_order" model="ir.actions.report">
+        <field name="name">Package Report</field>
+        <field name="model">sale.package.bundle</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">so_package.report_bundle_package</field>
+        <field name="report_file">so_package.report_bundle_package</field>
+
+        <field name="print_report_name">’Package Report - %s' % (object.name))</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
