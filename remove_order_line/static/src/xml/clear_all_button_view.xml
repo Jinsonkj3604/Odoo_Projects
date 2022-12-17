@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="ClearAll" owl="1">
+        <span class="control-button" style="background-color: red">
+            <i class="fa fa-trash"/>
+            <span> </span>
+            <span><strong>Clear Order</strong></span>
+        </span>
+    </t>
+</templates>
