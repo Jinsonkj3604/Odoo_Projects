@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="tmp_customer_form_success" name="Customer Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            <h2> Your Request Successfully Registered.</h2><br/><h3>Please Check Your Email !</h3>
+                        </div><br/>
+                        <button type="object" class="btn btn-primary" style="color: white"><a href="/maintenance" style="color: white">Back</a></button>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="online_maintenance_form">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                    <div class="container">
+                        <form action="/maintenance/submit/" method="post" enctype="multipart/form-data"
+                              class="o_mark_required" data-mark="*" data-model_name="" data-success-page="">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Request</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="name" type="text" class="form-control s_website_form_input"
+                                                   name="name" required="1" placeholder="Screen Damaged"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Equipment</span>
+<!--                                            <span class="s_website_form_mark">*</span>-->
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="equipment_id" t-attf-class="form-control s_website_form_input" value="equipment_id">
+                                                <t t-foreach="equipments or []" t-as="equipment">
+                                                    <option t-att-value="equipment.id">
+                                                        <t t-esc="equipment.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Email</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="email_cc" type="email" class="form-control s_website_form_input"
+                                                   name="email_cc" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Schedule Date</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="schedule_date" type="date"
+                                                   class="form-control s_website_form_input" name="schedule_date" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Maintenance Type</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <div class="form-check o_radio_item">
+
+                                                <input name="maintenance_type" type="radio"
+                                                       class="form-check-input o_radio_input" checked="true" id="corrective" value="corrective"/>
+                                                <label class="form-check-label o_form_label" for="self_only">Corrective</label>
+                                            </div>
+
+                                            <div class="form-check o_radio_item">
+
+                                                <input name="maintenance_type" type="radio"
+                                                       class="form-check-input o_radio_input" value="preventive"
+                                                       id="preventive"/>
+                                                <label class="form-check-label o_form_label" for="future_events">Preventive</label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                    <div style="width: 200px;" class="s_website_form_label"/>
+                                    <button type="object" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

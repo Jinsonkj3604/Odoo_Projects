@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="email_template_maintenance" model="mail.template">
+            <field name="name">Maintenance Request Template</field>
+            <field name="model_id" ref="maintenance.model_maintenance_request"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">{{ user.email }}</field>
+            <field name="email_to">abcgkj9@gmail.com</field>
+            <field name="subject">Request {{object.name}}</field>
+            <field name="body_html" type="html">
+                <table style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; olor: #454748; width: 100px; border-collapse: collapse;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="790"
+                                   style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="min-width: 790px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="850px"
+                                                   style="min-width: 700px; background-color: white; padding: 0px 8px 0px 8px; border-collapse: separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 20px;">
+                                                        <div>
+                                                            <tr>
+                                                                <h3>
+                                                                    Yor Maintenance Request For
+                                                                  <h2><t t-out="object.name" style="font-size: 25px"/></h2> has been Registered
+                                                                    Please Review Your Request Details
+                                                                </h3>
+                                                            </tr>
+                                                            <br/><br/>
+                                                            <div>
+                                                                <tr>
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                       width="850px"
+                                                                       style="min-width: 790px; background-color: white; font-size: 17px; border-collapse: split;">
+                                                                    <tbody><tr>
+                                                                        <th>Request</th>
+                                                                        <th>Equipment</th>
+                                                                        <th>Requested Date</th>
+                                                                        <th>Schedule Date</th>
+                                                                        <th>Maintenance Type</th>
+                                                                        </tr><tr >
+                                                                        <td style="padding-left: 20px"><t t-out="object.name"/></td>
+                                                                        <td style="padding-left: 20px"><t t-out="object.equipment_id.name"/></td>
+                                                                        <td style="padding-left: 20px"><t t-out="object.request_date"/></td>
+                                                                        <td style="padding-left: 20px"><t t-out="object.schedule_date"/></td>
+                                                                        <td style="padding-left: 20px"><t t-out="object.maintenance_type"/></td></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                </tr>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/><br/>
+                            <tr>
+                                <td align="center" style="min-width: 700px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                           style="min-width: 590px; background-color: white; font-size: 15px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                        <tr>
+                                            <td valign="middle" align="left">
+                                                <t t-out="object.company_id.name or ''">YourCompany</t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="middle" align="left" style="opacity: 0.7;">
+                                                <t t-if="object.company_id.email">|
+                                                    <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                       style="text-decoration:none; color: #454748;"
+                                                       t-out="object.company_id.email or ''">
+                                                        info@yourcompany.com
+                                                    </a>
+                                                </t>
+                                                <t t-if="object.company_id.website">|
+                                                    <a t-att-href="'%s' % object.company_id.website"
+                                                       style="text-decoration:none; color: #454748;"
+                                                       t-out="object.company_id.website or ''">
+                                                        http://www.example.com
+                                                    </a>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <t t-out="object.company_id.phone or ''">+1 650-123-4567</t>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+
+        <!--        border: 1px solid #dddddd;-->
+        <!--  text-align: left;-->
+        <!--  padding: 8px;-->
+
+
+
