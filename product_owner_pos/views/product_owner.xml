@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_owner_field" model="ir.ui.view">
+        <field name="name">product owner</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+
+                <field name="owner_id"/>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
