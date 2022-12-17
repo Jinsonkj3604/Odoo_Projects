@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="pos_session_field" model="ir.ui.view">
+        <field name="name">Session Field</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+
+            <div class="col-xs-12 col-lg-6 o_setting_box">
+                <div class="o_setting_left_pane">
+                    <field name="session_disc"/>
+                </div>
+                <div class="o_setting_right_pane">
+                    <label for="session_disc"/>
+                    <div class="content-group mt16" attrs="{'invisible': [('session_disc', '=', False)]}">
+                        <label for="maxim_discount" class="font-weight-normal"/>
+                        <span> </span>
+                        <field name="maxim_discount" />
+                    </div>
+                    <div class="content-group mt16" attrs="{'invisible': [('session_disc', '=', False)]}">
+                        <label for="catg_id" class="font-weight-normal"/>
+                        <span> </span>
+                        <field name="catg_id" />
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+
+</odoo>
