@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="inherit_data_search_page" model="ir.ui.view">
+            <field name="name">notebook data detail</field>
+            <field name="inherit_id" ref="data_search.search_action"/>
+            <field name="model">data.search.model</field>
+            <field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="Contents">
+
+                        <field name="content_ids" widget="one2many">
+                            <tree edittable="bottom">
+
+                            <field name="value"/>
+                            <field name="model_name"/>
+                            <field name="field_name"/>
+
+                            </tree>
+                        </field>
+
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+
+</odoo>
