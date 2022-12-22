@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="email_template_expiry_contract" model="mail.template">
+            <field name="name">Employee Contract Expiry Email</field>
+            <field name="model_id" ref="employee_contract_email.model_hr_contract"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_to">{{ ctx['hr'] }}</field>
+            <field name="subject">Reminder  For  {{ ctx['contract_name'] }} Is  Expired</field>
+            <field name="body_html" type="html">
+                <div>
+                    <table border="0" cellpadding="0" cellspacing="0" width="850px"
+                           style="min-width: 700px; background-color: white; padding: 0px 8px 0px 8px; border-collapse: separate;">
+                        <tr>
+                            <h3>Reminding for the Employee contract expiration</h3>
+                        </tr>
+                        <tr>
+                            <div>
+                               <p>
+                                 <h3> <strong><t t-out="ctx.get('name')" style="font-size: 30px"/></strong>
+                                 contract has been expired in <t t-out="ctx.get('days')" style="color: red"/> days (
+                                    <t t-out="ctx.get('end_date')" style="color: red"/>
+                                    )  Please renew the contract
+                                </h3>
+                               </p>
+                            </div>
+                        </tr>
+                        <tr>
+                            <h3>sincerely</h3>
+                        </tr>
+                    </table>
+
+
+                </div>
+
+            </field>
+        </record>
+    </data>
+</odoo>
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">Expire Email Contract</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Expire Date" data-key="expire_date"
+                string="Hr Mail">
+               <h2>Expire Mail</h2>
+               <div class="row mt16 o_settings_container" id="hr">
+                   <div class="col-12 col-lg-6 o_setting_box" id="notify_hr">
+                       <div class="o_setting_left_pane"/>
+                       <div class="o_setting_right_pane">
+                           <label for="end_date"/>
+                           <field name="end_date"/>
+                           <div class="text-muted">
+                               Send an employee contract expiry email before the number of days to the hr manager.
+                           </div>
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
