@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="Portal_Confirm" inherit_id="sale.portal_my_quotations">
+        <xpath expr="//t[@t-call='portal.portal_searchbar']" position="inside">
+            <a href="/my/home">
+            <div class="btn-group">
+                <div class="btn btn-secondary btn-sm " id="order_confirm"
+                     style="height: 23px; margin-top: 7px; margin-left: 4px">Confirm
+                </div>
+            </div></a>
+        </xpath>
+
+        <xpath expr="//tr[@class='active']/th[1]" position="before">
+            <th></th>
+        </xpath>
+
+        <xpath expr="//t[@t-foreach='quotations']/tr/td[1]" position="before">
+            <td class="text-left">
+                <input class="checkbox-cls" type= "checkbox" t-att-value="quotation.id">
+<!--                    <t t-esc="quotation.id"/>-->
+                </input>
+            </td>
+
+        </xpath>
+    </template>
+
+</odoo>
